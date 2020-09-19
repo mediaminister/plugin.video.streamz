@@ -338,7 +338,7 @@ class Api:
         :type search: str
         :rtype list[Union[Movie, Program]]
         """
-        response = util.http_get(API_ENDPOINT + '/%s/search/?query=%s' % (self._mode(), quote(search)),
+        response = util.http_get(API_ENDPOINT + '/%s/search?query=%s' % (self._mode(), quote(search)),
                                  token=self._tokens.jwt_token,
                                  profile=self._tokens.profile)
         results = json.loads(response.content)
